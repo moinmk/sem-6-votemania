@@ -1,0 +1,72 @@
+<html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale =1">
+            <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">  -->
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"><!-- bootstrap link -->
+            <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css"> <!-- Font Awesome link -->
+            <link rel="stylesheet" type="text/css" href="home.css">   
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li>
+                        <h3>Vote Mania</h3>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Categories">
+                            <span id="categories" class="fas fa-th navbar-icons navbar-iconcolor"></span>
+                        </a>    
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="search-padding">
+                            <div class="searchbox">
+                                <input type="text" name="" class="search-txt" placeholder="Search">
+                                <a class="search-btn">
+                                    <i class="fas fa-search navbar-iconcolor"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Notification">
+                            <span class="fas fa-bell navbar-icons navbar-iconcolor"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Profile">
+                            <span class="fas fa-user navbar-icons navbar-iconcolor"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="h-100 w-100">
+                    <h2>Voting A Poll</h2>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-12 text-center">
+                            <!-- <img src="Mordor.png"> -->
+                            <a href="#" class="btn btn-primary btn-lg" role="button">Vote</a>
+                            <p>
+                                
+                            </p>
+                    </div>
+                </div>
+            <div class="h-100 w-100">
+                    <h3>Hosting A Poll</h3>
+                    <p>Lorem ipsum</p>
+                    <input type="button" value="Vote" class="btn btn-primary" role="button">
+                </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="popover"]').popover();   
+            });
+        </script>
+    </body>
+</html>

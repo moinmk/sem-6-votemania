@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+h3 {
+    color: darkslategray;
+}
+/* Navbar And Gylphicons */
+.navbar-icons {
+    padding-top: 8px;
+    padding-right: 20px;
+    font-size: 25px;
+}
+
+.navbar-iconcolor {
+    color: lightgray;
+}
+
+.navbar-iconcolor:hover {
+    color:black;
+}
+
+.search-padding {
+    padding-top: 5px;
+    padding-right: 20px; 
+}
+
+.searchbox {  
+    position: relative;
+    transform-origin: left;
+    background:lightgray;
+    height: 35px;
+    border-radius: 60px;
+   
+}
+
+.searchbox:hover > .search-txt {
+    width: 150px;
+    padding: 0 12px;
+}
+   
+.searchbox:hover > .search-btn {
+    background:lightgray;
+    color:white;
+}
+
+.search-btn {
+    color: #e84118;
+    float: right;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    color: white;
+    cursor: pointer;
+}
+   
+.search-btn > i {
+    font-size: 22px;
+}
+   
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black    ;
+    font-size: 15px;
+    transition: 0.6s;
+    line-height: 32px;
+    width: 0px;
+}
+
+#categories {
+    padding-left: 20px;
+}
+
+/* Home Page of Hosting And Voting Poll Seactions */
+
+.h-100{
+    border-radius: 5px;
+    background:lightgrey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+img {
+    height: 100px;
+    width: 150px;
+}
