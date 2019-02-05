@@ -5,23 +5,32 @@ body {
 ul {
     list-style-type: none;
 }
-h3 {
-    color: darkslategray;
-}
-/* Navbar And Gylphicons */
+
+/* Navbar*/
 .navbar-icons {
     padding-right: 5px;
     font-size: 20px;
     color: lightgray;
 }
 
+.navbar-icons:hover{
+    color:black;
+}
+
 .nav-item{
-    margin-top:0px;
+    margin-top:10px;
+}
+
+.nav-item:hover > .navbar-icons{
+    color:black;
+}
+
+.nav-item{
+    margin-right:20px;
 }
 
 .nav-item:not(:first-of-type){
-    margin-right:20px;
-    margin-top:17px;
+    margin-top:16px;
 }
 
 
@@ -29,17 +38,13 @@ h3 {
     color:black;
 }
 
-.searchdiv {
-    padding-right: 20px; 
-}
-
+/* searchbar */
 .searchbox {  
     position: relative;
     transform-origin: right;
     background: transparent;
     height: 35px;
     border-radius: 60px;
-    
 }
 
 .searchbox:hover{
@@ -47,12 +52,9 @@ h3 {
 }
 
 .searchbox:hover > .search-txt {
-    width: 150px;
+    width: 180px;
     padding: 0 12px;
 }
-   
-
-
 .search-btn {
     color: #e84118;
     float: right;
@@ -87,9 +89,6 @@ h3 {
 }
 
 
-#categories {
-    padding-left: 20px;
-}
 
 /* Home Page of Hosting And Voting Poll Seactions */
 
@@ -97,11 +96,5 @@ h3 {
     border-radius: 5px;
     background:lightgrey;
     margin-top: 10px;
-    margin-bottom: 10px;
     padding: 20px;
-}
-
-img {
-    height: 100px;
-    width: 150px;
 }
