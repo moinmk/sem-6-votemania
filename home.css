@@ -1,62 +1,87 @@
 body {
     margin: 0;
     padding: 0;
+    color:white;
+    background:rgb(22, 22, 22);
+    font-family: "Quicksand";
+    background-image: url("1.jpg");
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
 }
 ul {
     list-style-type: none;
 }
 
 /* Navbar*/
-.navbar-icons {
+.navbar{
+    animation: navanimation;
+    animation-duration: 0.5s;
+    z-index:4;
+}
+
+
+@keyframes navanimation{
+    from{
+        margin-top:-50px;
+        opacity:0;
+    }
+    to{
+        margin-top:0px;
+        opacity:1;
+    }
+}
+
+.navbar-icons,.search-btn > i {
     padding-right: 5px;
-    font-size: 20px;
+    font-size: 16px;
     color: lightgray;
 }
 
-.navbar-icons:hover{
-    color:black;
-}
 
 .nav-item{
+    margin-right:25px;
     margin-top:10px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.nav-item:hover{
+    color:rgba(0, 0, 0, 0.74);
+    font-size:18px;
 }
 
 .nav-item:hover > .navbar-icons{
-    color:black;
+    color:rgba(0, 0, 0, 0.87);
+    font-size:18px;
+    transition-duration: 0.3s;
 }
 
-.nav-item{
-    margin-right:20px;
-}
 
 .nav-item:not(:first-of-type){
     margin-top:16px;
 }
 
 
-.navbar-iconcolor:hover {
-    color:black;
-}
-
 /* searchbar */
 .searchbox {  
-    position: relative;
-    transform-origin: right;
+    margin-top:-2px;
     background: transparent;
     height: 35px;
     border-radius: 60px;
+    border:2px solid transparent;
 }
 
 .searchbox:hover{
-    border:1px solid;
+    border:2px solid rgb(221, 221, 221);
 }
 
 .searchbox:hover > .search-txt {
     width: 180px;
     padding: 0 12px;
 }
+
+
 .search-btn {
-    color: #e84118;
     float: right;
     width: 35px;
     height: 35px;
@@ -70,10 +95,6 @@ ul {
     cursor: pointer;
 }
    
-.search-btn > i {
-    font-size: 22px;
-}
-   
 .search-txt {
     border: none;
     background: none;
@@ -81,7 +102,7 @@ ul {
     float: left;
     padding: 0;
     padding-left:3px;
-    color: black    ;
+    color: white;
     font-size: 15px;
     transition: 0.6s;
     line-height: 32px;
@@ -90,11 +111,40 @@ ul {
 
 
 
-/* Home Page of Hosting And Voting Poll Seactions */
+/* Home Page of Hosting And Voting Poll Sections */
 
-.h-100{
-    border-radius: 5px;
-    background:lightgrey;
-    margin-top: 10px;
-    padding: 20px;
+.maindiv{
+    /* background:rgba(194, 194, 194, 0.822); */
+    animation: anim;    
+    animation-duration: 0.6s;
+}
+
+@keyframes anim{
+    from{
+        margin-top:80px;
+        opacity:0;
+    }
+    to{
+        margin-top:0px;
+        opacity:1;
+    }
+}
+
+.hostvotebtn{
+    border:1px solid white;
+    color:white;
+    transition-duration: 0.3s;
+}
+
+.hostvotebtn:hover{
+    color:black;
+    background:rgba(255, 255, 255, 0.795);
+}
+
+.divinmain{
+    transition-duration: .3s;
+}
+
+.divinmain:hover{
+    font-size:18;
 }
