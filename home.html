@@ -9,52 +9,60 @@
             <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="padding-top:12px">
                     <li>
                         <h3>Vote Mania</h3>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+                
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars navbar-icons"></span>
+  </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <div class="searchdiv">
                             <div class="searchbox">
                                 <input type="text" name="" class="search-txt" placeholder="Search">
                                 <a class="search-btn">
                                     <i class="fas fa-search navbar-icons"></i>
                                 </a>
-                            </div>
-                        </div>  
+                            </div> 
                     </li>
                     <li class="nav-item">
                         <span id="categories" class="fas fa-th navbar-icons"></span>Categories
                     </li>
                     <li class="nav-item">
-                        <span class="fas fa-bell navbar-icons"></span>notification
+                        <span class="fas fa-bell navbar-icons"></span>Notification
                     </li>
                     <li class="nav-item">
-                        <span class="fas fa-user navbar-icons"></span>profile
+                        <span class="fas fa-user navbar-icons"></span>Profile
                     </li>
                 </ul>
+                </div>
             </div>
         </nav>
         <div class="container-fluid">
-            <div class="h-100 w-100">
-                    <h2>Voting A Poll</h2>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-12 text-center">
-                            <!-- <img src="Mordor.png"> -->
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Vote</a>
-                            <p>
-                                
-                            </p>
-                    </div>
+            <div class="maindiv row text-center" style="left:50%;top:50%;position:absolute;transform:translate(-50%,-50%);">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center divinmain">
+                    <span style="font-size:48;color:black">be a Host</span>
+                        <!-- <img src="Mordor.png"> -->
+                        <p>
+                        <span class="fas fa-quote-left mr-1" style="margin-top:-20px"></span> have an idea in a mind about an amazing poll <span class="fas fa-quote-right ml-2" style="margin-top:-20px"></span>
+                        </p>
+                        <a href="#" class="btn btn-regular btn-lg hostvotebtn">Host</a>
                 </div>
-            <div class="h-100 w-100">
-                    <h3>Hosting A Poll</h3>
-                    <p>Lorem ipsum</p>
-                    <input type="button" value="Vote" class="btn btn-primary" role="button">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center divinmain">
+                        <span style="font-size:48;color:black">be a Voter</span>
+                        <!-- <img src="Mordor.png"> -->
+                        <p>
+                        <span class="fas fa-quote-left mr-1" style="margin-top:-20px"></span> want to make a change vote<br> in any poll <span class="fas fa-quote-right ml-2" style="margin-top:-20px"></span>
+                        </p>
+                        <a href="#" class="btn btn-regular btn-lg hostvotebtn">Vote</a>
                 </div>
+            </div>
         </div>
     </body>
 </html>
