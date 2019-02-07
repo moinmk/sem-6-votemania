@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    color:white;
+    background:rgb(22, 22, 22);
+    font-family: "Quicksand";
+    background-image: url("1.jpg");
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbar{
+    animation: navanimation;
+    animation-duration: 0.5s;
+    z-index:4;
+}
+
+
+@keyframes navanimation{
+    from{
+        margin-top:-50px;
+        opacity:0;
+    }
+    to{
+        margin-top:0px;
+        opacity:1;
+    }
+}
+
+.navbar-icons,.search-btn > i {
+    padding-right: 5px;
+    font-size: 16px;
+    color: lightgray;
+}
+
+
+.nav-item{
+    margin-right:25px;
+    margin-top:10px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.nav-item:hover{
+    color:rgba(0, 0, 0, 0.74);
+    font-size:18px;
+}
+
+.nav-item:hover > .navbar-icons{
+    color:rgba(0, 0, 0, 0.87);
+    font-size:18px;
+    transition-duration: 0.3s;
+}
+
+
+.nav-item:not(:first-of-type){
+    margin-top:16px;
+}
+
+
+/* searchbar */
+.searchbox {  
+    margin-top:-2px;
+    background: transparent;
+    height: 35px;
+    border-radius: 60px;
+    border:2px solid transparent;
+}
+
+.searchbox:hover{
+    border:2px solid rgb(221, 221, 221);
+}
+
+.searchbox:hover > .search-txt {
+    width: 180px;
+    padding: 0 12px;
+}
+
+
+.search-btn {
+    float: right;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border:none;
+    background:transparent; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    cursor: pointer;
+}
+   
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    padding-left:3px;
+    color: white;
+    font-size: 15px;
+    transition: 0.6s;
+    line-height: 32px;
+    width: 0px;
+}
+ /* category links */
+
+a:link {
+    text-decoration: none;
+    color: lightgray;
+}
+a:visited {
+    text-decoration: none;
+    color: lightgray;
+}
+a:hover {
+    color: black;
+}
+a:active {
+    color: black;
+}
+
+/* Category Main Division */
+
+.category-item {
+    display: inline-block;
+    transition-duration: 0.4s;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.category-item:hover{
+    color:rgba(0, 0, 0, 0.74);
+    font-size:25px;
+}
