@@ -30,7 +30,6 @@
     foreach($idarray as $id){
     if($id==$uid){
         $alreadyvoted=1;
-
     }
     }
     if($alreadyvoted){
