@@ -33,8 +33,8 @@
                     $tagsarray=explode("#",$row['tags']);
                     foreach($searchwords as $keyword){
                         foreach($tagsarray as $tag){
-                            // if($keyword!="" &&(strtoupper($keyword)==strtoupper($tag) || strtoupper($keyword)==strtoupper($row['heading']))){//capatalized all keywords with strtoupper function
-                            if($keyword!="" && !(strpos(strtoupper($keyword),strtoupper($tag)) || strpos(strtoupper($keyword),strtoupper($row['heading'])))){//capatalized all keywords with strtoupper function
+                            if($keyword!="" &&(strtoupper($keyword)==strtoupper($tag) || strtoupper($keyword)==strtoupper($row['heading']))){//capatalized all keywords with strtoupper function
+                            // if($keyword!="" && !(strpos(strtoupper($keyword),strtoupper($tag)) || strpos(strtoupper($keyword),strtoupper($row['heading'])))){//capatalized all keywords with strtoupper function
                                 $found=true;
                             }
                         }
