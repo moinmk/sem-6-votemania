@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"><!-- bootstrap link -->
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css"> <!-- Font Awesome link -->
     <link rel="stylesheet" type="text/css" href="home.css">
-    <link rel="stylesheet" type="text/css" href="result.css">
+    <link rel="stylesheet" type="text/css" href="searchresult.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
