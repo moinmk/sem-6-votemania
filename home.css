@@ -8,15 +8,25 @@ body {
     background-position: center;
     background-size:cover;
     background-attachment: fixed;
+    /* text-align: justify;
+    text-justify: inter-word; */
 }
 ul {
     list-style-type: none;
 }
 
-a{
-    text-decoration:none !important;
+
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
 }
 
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
 
 /* Navbar*/
 .navbar{
@@ -56,6 +66,13 @@ a{
 .nav-item:hover{
     color:rgba(0, 0, 0, 0.74);
     font-size:18px;
+    cursor: pointer;
+}
+
+.nav-item:hover > a .navbar-icons{
+    color:rgba(0, 0, 0, 0.87);
+    font-size:18px;
+    transition-duration: 0.3s;
 }
 
 .nav-item:hover > .navbar-icons{
@@ -172,6 +189,7 @@ a{
     border:1px solid white;
     color:white;
     transition-duration: 0.3s;
+    background: transparent;
 }
 
 .hostvotebtn:hover{
@@ -194,7 +212,7 @@ a{
     }
     .collapse{
         padding:15px 0px 15px 15px;
-        background:rgba(54, 54, 54, 0.562);
+        background:rgba(54, 54, 54, 0.747);
         font-size:20;
         transition-duration: 0.3s;
     }
