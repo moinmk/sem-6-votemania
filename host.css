@@ -1,5 +1,4 @@
 .polldetails{
-    background:rgba(138, 138, 138, 0.496);
     padding:30px;
     left:50%;
     transform:translate(-50%);
@@ -26,6 +25,7 @@
     background-color: rgb(31, 31, 31); 
     border-radius: 50%;
 }
+
 
 .polldetails input,textarea,select,.noofopt,.custom-file-label{
     width:98%;
