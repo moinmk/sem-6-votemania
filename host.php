@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    session_start();  
+    include("db_connection.php");
     $uid=$_SESSION['id'];
     date_default_timezone_set("Asia/Kolkata");//set timezone of india
 ?>
@@ -16,58 +17,10 @@
 </head>
 
 <body>
-<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <ul class="navbar-nav" style="padding-top:12px">
-                <li>
-                    <h3>Vote Mania</h3>
-                </li>
-            </ul>
-
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fas fa-bars navbar-icons"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <div class="searchbox">
-                            <input type="text" name="" class="search-txt" placeholder="Search">
-                            <a class="search-btn">
-                                <i class="fas fa-search navbar-icons"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <span id="categories" class="fas fa-th navbar-icons"></span>Categories
-                    </li>
-                    <li class="nav-item notificationlink">
-                        <span class="fas fa-bell navbar-icons"></span>Notification
-                        <div class="notificationdiv">
-                            <ul style="padding:5px">
-                                <li>link</li>
-                                <li>link</li>
-                                <li>link</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item notificationlink">
-                        <span class="fas fa-user navbar-icons"></span>Username
-                        <div class="notificationdiv" style="margin-left:-5%;width:150px;text-align:center;">
-                            <ul style="padding:5px;">
-                                <li>Profile</li>
-                                <a href="signuplogin.php">
-                                    <li><span class="fas fa-sign-out-alt"></span> log out</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" autocomplete="off" enctype="multipart/form-data">
+    <?php
+    include("navbar.php");
+    ?>
     <div class="container-fluid" style="background:;">
 
         <h2>Host poll</h2>
@@ -76,9 +29,9 @@
                 <lable>Poll heading:</lable><br>
                 <input type="text" name="pollheading" required><br>
                 <lable>Poll description:</lable><br>
-                <textarea style="currentpollidize:none" name="polldescription"></textarea><br>
+                <textarea style="currentpollidize:none" name="polldescription"  required></textarea><br>
                 <lable>Question:</lable><br>
-                <textarea style="currentpollidize:none" name="question"></textarea><br>
+                <textarea style="currentpollidize:none" name="question"  required></textarea><br>
                 <lable>Number of options:</lable><br>
                 <select class="<!--custom-select--> noofopt" name="noofoptions">
                     <option value="2" selected>2</option>
@@ -118,7 +71,6 @@
                     <div class="col">
                         <lable>Options's type:</lable><br>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <!-- <div class="custom-control custom-radio custom-control-inline"> to display both radiobutton inline-->
                             <input type="radio" value="text" id="customRadio1" name="opttype"
                                 class="custom-control-input" checked>
                             <label class="custom-control-label" for="customRadio1">Text</label>
@@ -210,7 +162,7 @@
 </html>
 
 <?php
-    include("db_connection.php");
+   
     
     if(isset($_POST['hostbtn'])){
         $pollheading=mysqli_real_escape_string($connection,$_POST['pollheading']);
@@ -222,14 +174,14 @@
         $deadline=mysqli_real_escape_string($connection,$_POST['deadline']);
         $tags=mysqli_real_escape_string($connection,$_POST['tags']);
         
-        $query="insert into poll_details(uid,heading,description,question,option_type,ansselectionallow,deadline,tags)values('$uid','$pollheading','$polldescription','$question','$optiontype','$ansselectionallow','$deadline','$tags')";
+        $query="insert into poll_details(uid,heading,description,question,option_type,ansselectionallow,deadline,timeadded,tags)values('$uid','$pollheading','$polldescription','$question','$optiontype','$ansselectionallow','$deadline',now(),'$tags')";
         mysqli_query($connection,$query);
         $currentpollid=mysqli_insert_id($connection);//to get the auto incremented id of poll_details table    
 
         if($optiontype=="text"){
             for($i=0;$i<$noofoptions;$i++){
                 ${"opttext".($i+1)}=$_POST["option".($i+1)];
-                $query="insert into options_data(pid,options)values('$currentpollid','${"opttext".($i+1)}')";
+                $query="insert into options_data(pid,optiontext)values('$currentpollid','${"opttext".($i+1)}')";
                 mysqli_query($connection,$query);
                 
             }
@@ -247,5 +199,7 @@
                 
             }
         }
+        //meta tag to refresh page
+        echo "<meta http-equiv='refresh' content='0'>";
     }
 ?>
