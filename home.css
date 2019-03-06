@@ -69,13 +69,17 @@ a:visited {
     cursor: pointer;
 }
 
+.nav-item:hover>.notificationbadge{
+    color:white;
+}
+
 .nav-item:hover > a .navbar-icons{
     color:rgba(0, 0, 0, 0.87);
     font-size:18px;
     transition-duration: 0.3s;
 }
 
-.nav-item:hover > .navbar-icons{
+.nav-item:hover > .navbar-icons {
     color:rgba(0, 0, 0, 0.87);
     font-size:18px;
     transition-duration: 0.3s;
@@ -84,6 +88,16 @@ a:visited {
 
 .nav-item:not(:first-of-type){
     margin-top:16px;
+}
+
+
+.notificationbadge{
+    background:rgba(0,0,0,.6);
+    display:inline-block;
+    border-radius:50%;
+    font-size:12;
+    padding:1 6;
+    position:absolute;
 }
 
 

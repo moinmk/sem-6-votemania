@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-item notificationlink">
-                        <span class="fas fa-bell navbar-icons"></span>Notification
+                        <span class="fas fa-bell navbar-icons "></span>Notification<span class="notificationbadge">0</span>
                         <div class="notificationdiv">
                             <ul style="padding:5px">
                                 <li>link</li>
