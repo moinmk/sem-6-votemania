@@ -33,6 +33,13 @@
                             <span id="categories" class="fas fa-th navbar-icons"></span>Categories
                         </a>
                     </li>
+                    <?php
+                        $query="select * from notification where uid=$uid and status=0";
+                        $res=mysqli_query($connection,$query);
+                        while($row=mysqli_fetch_assoc($res)){
+                            print_r($row);
+                        }
+                    ?>
                     <li class="nav-item notificationlink">
                         <span class="fas fa-bell navbar-icons "></span>Notification<span class="notificationbadge">0</span>
                         <div class="notificationdiv">
