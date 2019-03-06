@@ -4,6 +4,7 @@
         header('location:signuplogin.php');  
     }   
     include("db_connection.php");
+    $uid=$_SESSION['id'];
 ?>
 <html>
     <head>

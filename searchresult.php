@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $uid=$_SESSION['id'];
     date_default_timezone_set("Asia/Kolkata");//set timezone of india
     include('db_connection.php');
     $searchwords=explode(" ",$_REQUEST['strtosearch']);//words array to search
