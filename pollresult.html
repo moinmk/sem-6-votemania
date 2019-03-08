@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale =1">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">  -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"><!-- bootstrap link -->
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css"> <!-- Font Awesome link -->
+    <link rel="stylesheet" type="text/css" href="home.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="canvasjs/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            
+            
+            animationEnabled: true,
+             
+            theme:"dark2",
+            backgroundColor:"rgba(255,255,255,0.6)",
+            
+            title:{
+                text: "My First Chart in CanvasJS",
+                fontColor:"black",    
+                fontFamily:"Quicksand",
+
+            },
+            //dataPointMaxWidth: 40,
+            axisY:{              
+        // labelFontSize: 25,
+        labelFontColor: "black",
+        suffix:" votes",
+        labelFontFamily:"Quicksand",
+      },
+      axisX:{              
+        // labelFontSize: 25,
+        labelFontColor: "black",
+        labelFontFamily:"Quicksand",
+      },
+            data: [              
+            {
+                // Change type to "pie","column","doughnut", "line", "splineArea", etc.
+                type: "column",
+                // showInLegend:"true",
+                color:"rgba(0,0,0,0.7)",
+                legendText: "{label}",
+            indexLabelFontSize: 16,
+            // indexLabel: "{label} - #percent%",
+                dataPoints: [
+                    { label: "the dark knight",  y: 15  },
+                    { label: "blackpanther", y: 8  },
+                    { label: "logan", y: 9 },
+                    { label: "mango",  y: 10  },
+                    { label: "grape",  y: 2  }
+                ]
+            }
+            ]
+        });
+        chart.render();
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center" style="background:black">
+            <div id="chartContainer" class="col-lg-8 col-md-10 cl-sm-12" style="background:red">
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
