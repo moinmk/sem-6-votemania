@@ -29,7 +29,7 @@
                         </div>
                     </li>
                     <li class="nav-item notificationlink">
-                        <a href="home.php">
+                        <a href="categories.php">
                             <span id="categories" class="fas fa-th navbar-icons"></span>Categories
                         </a>
                     </li>

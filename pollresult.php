@@ -1,7 +1,10 @@
 <?php
-    session_start();  
-    include("db_connection.php");
-    $uid=$_SESSION['id'];
+session_start();
+if($_SESSION['id']==""){
+    header('location:signuplogin.php');  
+}   
+include("db_connection.php");
+$uid=$_SESSION['id'];
     
 ?>
 <html>
@@ -17,10 +20,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="canvasjs/canvasjs.min.js"></script>
     <?php
-    $qry="select * from poll_details where pid=18";
+    $qry="select * from poll_details where pid=19 ";
     $result=mysqli_query($connection,$qry);
     $data=mysqli_fetch_assoc($result);
-    $optionsquery="select * from options_data where pid=18";
+    $optionsquery="select * from options_data where pid=19";
     $qryres=mysqli_query($connection,$optionsquery);
     
     ?>

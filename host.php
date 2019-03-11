@@ -1,5 +1,8 @@
 <?php
-    session_start();  
+    session_start();
+	if($_SESSION['id']==""){
+        header('location:signuplogin.php');  
+    }   
     include("db_connection.php");
     $uid=$_SESSION['id'];
     date_default_timezone_set("Asia/Kolkata");//set timezone of india
@@ -17,10 +20,10 @@
 </head>
 
 <body>
-<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" autocomplete="off" enctype="multipart/form-data">
     <?php
     include("navbar.php");
     ?>
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" autocomplete="off" enctype="multipart/form-data">
     <div class="container-fluid" style="background:;">
 
         <h2>Host poll</h2>
@@ -150,6 +153,24 @@
                 </script>
                 <lable>Deadline(min 24 hrs):</lable>
                 <input type="date" value="<?php echo date("Y-m-d",time() + 86400);?>" name="deadline" min="<?php echo date("Y-m-d",time() + 86400);?>">
+                <lable>Category:</lable><br>
+                <select class="" name="category">
+                    <option value="art" selected>art</option>
+                    <option value="bikes">bikes</option>
+                    <option value="cars">cars</option>
+                    <option value="celebrities">celebrities</option>
+                    <option value="education">education</option>
+                    <option value="fashion">fashion</option>
+                    <option value="food">food</option>
+                    <option value="movies">movies</option>
+                    <option value="music">music</option>
+                    <option value="news">news</option>
+                    <option value="politics">politics</option>
+                    <option value="sports">sports</option>
+                    <option value="superheroes">superheroes</option>
+                    <option value="technology">technology</option>
+                    <option value="tv shows">tv shows</option>
+                </select><br>
                 <lable>Tags(e.g.#movies#tvshows):</lable>
                 <input type="text" name="tags">
                 <button name="hostbtn" class="btn btn-regular btn-lg hostbtn">Host</button>
@@ -162,9 +183,9 @@
 </html>
 
 <?php
-   
     
     if(isset($_POST['hostbtn'])){
+        echo "dfsg";
         $pollheading=mysqli_real_escape_string($connection,$_POST['pollheading']);
         $polldescription=mysqli_real_escape_string($connection,$_POST['polldescription']);
         $question=mysqli_real_escape_string($connection,$_POST['question']);
@@ -173,8 +194,8 @@
         $ansselectionallow=mysqli_real_escape_string($connection,$_POST['ansselectionallow']);
         $deadline=mysqli_real_escape_string($connection,$_POST['deadline']);
         $tags=mysqli_real_escape_string($connection,$_POST['tags']);
-        
-        $query="insert into poll_details(uid,heading,description,question,option_type,ansselectionallow,deadline,timeadded,tags)values('$uid','$pollheading','$polldescription','$question','$optiontype','$ansselectionallow','$deadline',now(),'$tags')";
+        $category=mysqli_real_escape_string($connection,$_POST['category']);
+        $query="insert into poll_details(uid,heading,description,question,option_type,ansselectionallow,deadline,timeadded,category,tags)values('$uid','$pollheading','$polldescription','$question','$optiontype','$ansselectionallow','$deadline',now(),'$category','$tags')";
         mysqli_query($connection,$query);
         $currentpollid=mysqli_insert_id($connection);//to get the auto incremented id of poll_details table    
 

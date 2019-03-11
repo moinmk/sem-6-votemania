@@ -1,5 +1,9 @@
 <?php
  session_start();
+ if($_SESSION['id']==""){
+     header('location:signuplogin.php');  
+ }   
+ include("db_connection.php");
  $uid=$_SESSION['id'];
  $alreadyvoted=0;
  if(isset($_REQUEST['pollid'])){
@@ -91,14 +95,16 @@
                                 <br><?php if($row['option_type']=="image"){echo '<img src="data:image/jpeg;base64,'.base64_encode( $data['optionimage'] ).'" width="30%" class="mt-2" style="box-shadow: 0px 10px 20px 1px rgba(0,0,0,0.75);">';}?>
                                 </div>
                                 <?php
-                                    $percentage=floor(($data['total']*100)/$totalvotes);
-                                ?>
+                                    if($totalvotes>0){    
+                                        $percentage=floor(($data['total']*100)/$totalvotes);
+                                    }
+                                    ?>
                                 <div class="progress" style="background:rgba(0,0,0,0.30)">
-                                <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage;?>%;background:rgba(0,0,0,0.8);padding-left:5px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $percentage;?>% voters have chose this option </div>
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage;?>%;background:rgba(0,0,0,0.8);padding-left:5px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $percentage;?>% voters have chose this option </div>
                                 </div>
                                 <hr style="background:rgba(0,0,0,0.5);width:80%;height:1px">
                                 
-                            <?php
+                                <?php
                             }
                             elseif($row['ansselectionallow']=="multiple"){
                                 ?>    
@@ -108,7 +114,9 @@
                                     <br><?php if($row['option_type']=="image"){echo '<img src="data:image/jpeg;base64,'.base64_encode( $data['optionimage'] ).'" width="30%" class="mt-2 " style="box-shadow: 0px 10px 20px 1px rgba(0,0,0,0.75);">';}?>  
                                 </div>
                                 <?php
-                                    $percentage=floor(($data['total']*100)/$totalvotes);
+                                    if($totalvotes>0){    
+                                        $percentage=floor(($data['total']*100)/$totalvotes);
+                                    }
                                 ?>
                                 <div class="progress" style="background:rgba(0,0,0,0.30)">
                                 <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage;?>%;background:rgba(0,0,0,0.8);padding-left:5px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $percentage;?>% voters have chose this option </div>

@@ -1,9 +1,18 @@
 <?php
     session_start();
+	if($_SESSION['id']==""){
+        header('location:signuplogin.php');  
+    }   
+    include("db_connection.php");
     $uid=$_SESSION['id'];
     date_default_timezone_set("Asia/Kolkata");//set timezone of india
     include('db_connection.php');
+    if(isset($_REQUEST['strtosearch'])){
     $searchwords=explode(" ",$_REQUEST['strtosearch']);//words array to search
+    }
+    elseif(isset($_REQUEST['category'])){
+    $category=$_REQUEST['category'];
+    }
     // print_r($searchwords);
 ?>
 
@@ -26,21 +35,30 @@
     <div class="container-fluid row justify-content-center" style="width:100%;margin:0;">
         <div class="polldiv col-lg-8 justify-content-center">
             <?php
-                $query="select * from poll_details";
+                $query="select * from poll_details order by pid desc";
                 $res=mysqli_query($connection,$query);
+                $totalfound=0;
                 while($row=mysqli_fetch_assoc($res)){
-                // print_r($row);
                     $found=false;
-                    $tagsarray=explode("#",$row['tags']);
-                    foreach($searchwords as $keyword){
-                        foreach($tagsarray as $tag){
-                            if($keyword!="" &&(strtoupper($keyword)==strtoupper($tag) || strtoupper($keyword)==strtoupper($row['heading']))){//capatalized all keywords with strtoupper function
-                            // if($keyword!="" && !(strpos(strtoupper($keyword),strtoupper($tag)) || strpos(strtoupper($keyword),strtoupper($row['heading'])))){//capatalized all keywords with strtoupper function
-                                $found=true;
+                    if(isset($_REQUEST['strtosearch'])){
+                // print_r($row);
+                        $tagsarray=explode("#",$row['tags']);
+                        foreach($searchwords as $keyword){
+                            foreach($tagsarray as $tag){
+                                if($keyword!="" &&(strtoupper($keyword)==strtoupper($tag) || strtoupper($keyword)==strtoupper($row['heading']))){//capatalized all keywords with strtoupper function
+                                // if($keyword!="" && !(strpos(strtoupper($keyword),strtoupper($tag)) || strpos(strtoupper($keyword),strtoupper($row['heading'])))){//capatalized all keywords with strtoupper function
+                                    $found=true;
+                                }
                             }
                         }
                     }
+                    elseif(isset($_REQUEST['category'])){
+                        if($row['category']==$category){
+                            $found=true;
+                        }
+                    }
                     if($found){
+                        $totalfound++;
                         $deadline=strtotime($row['deadline']." ".$row['timeadded']); //convert time into seconds
                         if(time()-$deadline<0){ //return seconds in minus for future date so display only those polls which are not expired
             ?>
@@ -55,7 +73,7 @@
                         }
                     }
             }
-            if(!$found){
+            if($totalfound==0){
                 ?><h1 style="color:black;">no poll found</h1><?php
             }
             ?>
