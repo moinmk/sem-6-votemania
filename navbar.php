@@ -51,7 +51,11 @@
                         </div>
                     </li>
                     <li class="nav-item notificationlink">
-                        <span class="fas fa-user navbar-icons"></span>Username
+                    <?php 
+                    $qryres=mysqli_query($connection,"select username from user_details where uid=$uid");
+                    $arr=mysqli_fetch_assoc($qryres);
+                    ?>
+                        <span class="fas fa-user navbar-icons"></span><?php echo $arr['username']?>
                         <div class="notificationdiv" style="margin-left:-5%;width:150px;text-align:center;">
                             <ul style="padding:5px;">
                                 <li>Profile</li>
