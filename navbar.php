@@ -37,7 +37,7 @@
                         $query="select * from notification where uid=$uid and status=0";
                         $res=mysqli_query($connection,$query);
                         while($row=mysqli_fetch_assoc($res)){
-                            print_r($row);
+                            // print_r($row);
                         }
                     ?>
                     <li class="nav-item notificationlink">

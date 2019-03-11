@@ -97,6 +97,7 @@
                                 <div class="progress-bar" role="progressbar" style="width: <?php echo $percentage;?>%;background:rgba(0,0,0,0.8);padding-left:5px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $percentage;?>% voters have chose this option </div>
                                 </div>
                                 <hr style="background:rgba(0,0,0,0.5);width:80%;height:1px">
+                                
                             <?php
                             }
                             elseif($row['ansselectionallow']=="multiple"){
