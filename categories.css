@@ -1,5 +1,5 @@
 /* Category Main Division */
-.categorydiv{
+.categorydiv,h1{
     animation: anim;    
     animation-duration: 0.6s;
 }

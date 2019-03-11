@@ -36,7 +36,7 @@
                         <p>
                         <span class="fas fa-quote-left mr-1" style="margin-top:-20px"></span> want to make a change vote<br> in any poll <span class="fas fa-quote-right ml-2" style="margin-top:-20px"></span>
                         </p>
-                        <a href="#" class="btn btn-regular btn-lg hostvotebtn">Vote</a>
+                        <a href="categories.php" class="btn btn-regular btn-lg hostvotebtn">Vote</a>
                 </div>
             </div>
         </div>

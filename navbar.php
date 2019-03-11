@@ -12,6 +12,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                
                     <li class="nav-item notificationlink">
                         <div class="searchbox">
                             <input type="text" name="searchtxt" class="search-txt" placeholder="Search poll">
@@ -27,6 +28,11 @@
                             });
                             </script>
                         </div>
+                    </li>
+                    <li class="nav-item notificationlink">
+                        <a href="home.php">
+                            <span class="fas fa-home navbar-icons"></span>Home
+                        </a>
                     </li>
                     <li class="nav-item notificationlink">
                         <a href="categories.php">
