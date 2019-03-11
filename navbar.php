@@ -73,6 +73,7 @@
 <?php
     if(isset($_POST['searchbtn'])){
         $stringtosearch=mysqli_real_escape_string($connection,$_POST['searchtxt']);
-        header("location:searchresult.php?strtosearch=$stringtosearch");
+        // header("location:searchresult.php?strtosearch=$stringtosearch");
+        echo '<script>location.replace("searchresult.php?strtosearch='.$stringtosearch.'");</script>';
     }
 ?>
