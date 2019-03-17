@@ -64,7 +64,9 @@
                         <span class="fas fa-user navbar-icons"></span><?php echo $arr['username']?>
                         <div class="notificationdiv" style="margin-left:-5%;width:150px;text-align:center;">
                             <ul style="padding:5px;">
-                                <li>Profile</li>
+                                <a href="profile.php">
+                                    <li>Profile</li>
+                                </a>
                                 <a href="signuplogin.php">
                                     <li><span class="fas fa-sign-out-alt"></span> log out</li>
                                 </a>

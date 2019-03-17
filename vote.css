@@ -5,26 +5,8 @@
     background: rgba(255, 255, 255, 0.3);
     color:black;
     animation: anim;    
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in;
-}
-
-.votediv div{
-    animation-timing-function: ease-in;
-    animation: divanim;    
-    animation-duration: 0.5s;
-    /* animation-delay: .2s; */
-}
-
-@keyframes divanim{
-    from{
-        margin-top:80px;
-        opacity:0;
-    }
-    to{
-        margin-top:20px;
-        opacity:1;
-    }
+    animation-duration: 0.6s;
+    /* animation-timing-function: ease-in; */
 }
 
 .votediv label{

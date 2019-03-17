@@ -57,7 +57,8 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-8 votediv" style="">
-                <div class="mb-4" id="timer" style="text-align: center;"></div>
+                <div class="mb-4" id="timer" style="text-align: center;"><h1>POLL EXPIRDED</h1></div>
+                <div class="alldata" style="display:block"> <!-- set display none if deadline time is expired -->
                 <div style="background: rgba(255, 255, 255, 0.3);padding:30px;">
                     <h2><?php echo $row['heading'];?></h2>
                     <p class="ml-4 mb-4">
@@ -132,6 +133,7 @@
                 </div>
                 <!-- <img src="1.jpg" width="30%" class="ml-5 mt-2"><br> -->
                 <button name="submit" class="btn-default btn-lg mt-5 submitbtn">submit</button>
+                    </div>
             <!-- script for timer -->
             <script>
                 var countDownDate = new Date("<?php echo $row['deadline']." ".$row['timeadded'];?>").getTime();
@@ -147,7 +149,8 @@
                         + minutes + "m " + seconds + "s" + "</h1><h6>time remaining before poll ends</h6>";
                     if (distance < 0) {
                         clearInterval(x);
-                        document.getElementById("timer").innerHTML = "EXPIRED";
+                        $(".alldata").css("display","none");
+                        document.getElementById("timer").innerHTML = "<h1>POLL EXPIRED</h1>";
                     }
                 }, 0);
             </script>

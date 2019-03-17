@@ -237,7 +237,7 @@
             $gender=$_POST['gender'];
             $city=$_POST['city'];
            
-            $query="SELECT * FROM user_details";
+            $query="SELECT * FROM user_details";//check if username is taken
             $result=mysqli_query($connection,$query);
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)) {

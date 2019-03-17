@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale =1">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">  -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"><!-- bootstrap link -->
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css"> <!-- Font Awesome link -->
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 profilediv" style="">
+                <h1>Profile</h1>
+                <div style="background: rgba(255, 255, 255, 0.3);padding:30px;margin-top:20px;overflow-x:auto;">
+                    <h5><u>personal details</u></h5>
+                    <table class="ml-3">
+
+                        <tr>
+                            <td>username:</td>
+                            <td>user3 </td>
+                        </tr>
+                        <tr>
+                            <td>email:</td>
+                            <td>user@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>DOB:</td>
+                            <td>01-01-0001</td>
+                        </tr>
+                        <tr>
+                            <td>gender:</td>
+                            <td>male</td>
+                        </tr>
+                        <tr>
+                            <td>city:</td>
+                            <td>rjt</td>
+                        </tr>
+                    </table>
+                    <span class="btn btn-regular btn-lg viewresults float-right" id="editbutton"
+                        style="float:right;cursor:pointer;">edit deteails <span class="fas fa-pen"></span></span>
+                </div>
+                <div class="pollsbyyoudiv" style="background: rgba(255, 255, 255, 0.3);padding:30px;margin-top:20px;">
+                    <h5><u>poll hosted by you</u></h5>
+                    <div class="polls" style="background:rgba(255, 255, 255, 0.3);overflow:auto">
+                        <h2>heading</h2>
+                        <p class="ml-4 mt-3" style="text-align: justify">
+                            description
+                        </p>
+                        created date: 01-01-0001
+                        <a href="vote.php?pollid=<?php echo $row['pid'];?>"
+                            class="btn btn-regular btn-lg viewresults float-right" role="button">view results <span
+                                class="fas fa-arrow-right"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="updatedetails.php" method="post" enctype="multipart/form-data">
+        <div id="udetails" class="row" style="margin:0;">
+            <div id="udcontent" class="col-12  col-md-8 col-lg-5" style="margin-top:-5%;">
+                <h3 style="font-family: Century gothic;color:rgba(255, 255, 255, 0.87)">edit details</h3>
+                <label>username</label><br>
+                <input type="text" name="username"><br>
+                <label>email</label><br>
+                <input type="email" name="email"><br>
+                <label>DOB</label><br>
+                <input type="date" name="dob"><br>
+                <label>user gender</label><br>
+                <select name="gender">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="other">other</option>
+                </select><br>
+                <label>city</label><br>
+                <input type="text" name="city"><br>
+
+                <!-- <label><a href="">change password:</a></label><br>
+                old password:<br>
+                <input type="text" name="city"><br>
+                new password:<br>
+                <input type="text" name="city"><br> -->
+                <button name="update">UPDATE</button><br>
+                <button type="button" id="cancel">CANCEL</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        $('#cancel').click(function () {
+            $("#udetails").css("display", "none");
+        });
+        $('#editbutton').click(function () {
+            $("#udetails").css("display", "block");
+        });
+        $(window).click(function (event) {
+            if (event.target.id == 'udetails') {
+                $("#udetails").css("display", "none");
+            }
+        });
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

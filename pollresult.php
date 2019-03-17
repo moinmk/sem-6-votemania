@@ -5,7 +5,7 @@ if($_SESSION['id']==""){
 }   
 include("db_connection.php");
 $uid=$_SESSION['id'];
-    
+$pid=$_REQUEST['pollid'];  
 ?>
 <html>
 <head>
@@ -20,10 +20,10 @@ $uid=$_SESSION['id'];
     <script src="js/bootstrap.min.js"></script>
     <script src="canvasjs/canvasjs.min.js"></script>
     <?php
-    $qry="select * from poll_details where pid=19 ";
+    $qry="select * from poll_details where pid=$pid ";
     $result=mysqli_query($connection,$qry);
     $data=mysqli_fetch_assoc($result);
-    $optionsquery="select * from options_data where pid=19";
+    $optionsquery="select * from options_data where pid=$pid";
     $qryres=mysqli_query($connection,$optionsquery);
     
     ?>
