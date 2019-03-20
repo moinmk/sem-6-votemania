@@ -58,14 +58,16 @@ $uid=$_SESSION['id'];
                         </tr>
                     </table>
                     <span class="btn btn-regular btn-lg viewresults float-right" id="editbutton"
-                        style="float:right;cursor:pointer;display:block">edit deteails <span class="fas fa-pen"></span></span>
+                        style="float:right;cursor:pointer;display:block">edit details <span class="fas fa-pen"></span></span>
                 </div>
                 <div class="pollsbyyoudiv" style="background: rgba(255, 255, 255, 0.3);padding:30px;margin-top:20px;">
                 <h5><u>poll hosted by you</u></h5>
                     <?php
+                    $totalpollfound=0;
                     $pollquery="select * from poll_details where uid=$uid";
                     $resdata=mysqli_query($connection,$pollquery);
                     while($data=mysqli_fetch_assoc($resdata)){
+                        $totalpollfound++;
                     ?>
                     <div class="polls" style="background:rgba(255, 255, 255, 0.3);overflow:auto">
                         <h2><?php echo $data['heading'];?></h2>
@@ -85,6 +87,13 @@ $uid=$_SESSION['id'];
                     </div>
                         <?php
                     }
+                    if($totalpollfound==0){
+                        echo "<h5>you havent hosted any poll yet</h5>";?>
+                        <a href="host.php"
+                        class="btn btn-regular btn-lg viewresults float-right" role="button" style="display:block">host a new poll <span
+                            class="fas fa-arrow-right"></span></a>
+                            <?php
+                    }
                     ?>
                 </div>
             </div>
@@ -92,7 +101,7 @@ $uid=$_SESSION['id'];
     </div>
     <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
         <div id="udetails" class="row" style="margin:0;">
-            <div id="udcontent" class="col-12  col-md-8 col-lg-5" style="margin-top:-5%;">
+            <div id="udcontent" class="col-12 col-sm-8 col-md-8 col-lg-5" style="margin-top:-5%;">
                 <h3 style="font-family: Century gothic;color:rgba(255, 255, 255, 0.87)">edit details</h3>
                 <label>username</label><br>
                 <input type="text" name="username" value="<?php echo $row['username'];?>" required><br>
