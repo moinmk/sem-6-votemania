@@ -190,16 +190,21 @@
                     }
                     $query="update poll_details set userids=concat(userids,' $uid') where pid=$pid"; 
                     mysqli_query($connection,$query);
-            }
-            else{
-                echo $_POST['options'];
-                $optionid=$_POST['options'];
-                $query="update options_data set total=total+1 where oid=$optionid";
-                mysqli_query($connection,$query);
-                echo "pdi".$pid;
-                $query="update poll_details set userids=concat(userids,' $uid') where pid=$pid"; 
-                mysqli_query($connection,$query);    
-            }
+                    $query="insert into notification(uid,pid,message,status)values('$uid','$pid','poll ended see the result',0)"; 
+                    mysqli_query($connection,$query);
+                    
+                }
+                else{
+                    echo $_POST['options'];
+                    $optionid=$_POST['options'];
+                    $query="update options_data set total=total+1 where oid=$optionid";
+                    mysqli_query($connection,$query);
+                    echo "pdi".$pid;
+                    $query="update poll_details set userids=concat(userids,' $uid') where pid=$pid"; 
+                    mysqli_query($connection,$query);    
+                    $query="insert into notification(uid,pid,message,status)values('$uid','$pid','poll ended see the result',0)"; 
+                    mysqli_query($connection,$query);
+                }
             
             //meta tag to refresh page
             echo "<meta http-equiv='refresh' content='0'>";

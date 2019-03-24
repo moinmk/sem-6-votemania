@@ -6,6 +6,8 @@ if($_SESSION['id']==""){
 include("db_connection.php");
 $uid=$_SESSION['id'];
 $pid=$_REQUEST['pollid'];  
+mysqli_query($connection,"update notification set status=1 where pid=$pid and uid=$uid");
+
 ?>
 <html>
 <head>

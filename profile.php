@@ -159,7 +159,10 @@ $uid=$_SESSION['id'];
         $date=$_POST['dob'];
         $gender=$_POST['gender'];
         $city=$_POST['city'];
-
+        $query="SELECT * FROM user_details where uid=$uid";//check usernames only if username has been changed
+        $result=mysqli_query($connection,$query);
+        $row=mysqli_fetch_assoc($result);
+        if($uname!=$row['username']){
         $query="SELECT * FROM user_details";//check if username is taken
             $result=mysqli_query($connection,$query);
             if (mysqli_num_rows($result) > 0) {
@@ -170,7 +173,7 @@ $uid=$_SESSION['id'];
                     }    
                 }
             }
-            
+        }
             $query="update user_details set username='$uname',email='$email',dob='$date',gender='$gender',city='$city' where uid=$uid;";    
             if(mysqli_query($connection,$query)){        
                 echo "<meta http-equiv='refresh' content='0'>";

@@ -204,7 +204,8 @@
                 ${"opttext".($i+1)}=$_POST["option".($i+1)];
                 $query="insert into options_data(pid,optiontext)values('$currentpollid','${"opttext".($i+1)}')";
                 mysqli_query($connection,$query);
-                
+                $query="insert into notification(uid,pid,message,status)values('$uid','$currentpollid','poll you created has ended see the result',0)"; 
+                mysqli_query($connection,$query);   
             }
         }
         elseif($optiontype="image"){
@@ -216,6 +217,8 @@
                 ${"opttext".($i+1)}=$_POST["text".($i+1)];
                 
                 $query="insert into options_data(pid,optiontext,optionimage)values('$currentpollid','${"opttext".($i+1)}','${"optimage".($i+1)}')";
+                mysqli_query($connection,$query);
+                $query="insert into notification(uid,pid,message,status)values('$uid','$currentpollid','poll you created has ended see the result',0)"; 
                 mysqli_query($connection,$query);
                 
             }

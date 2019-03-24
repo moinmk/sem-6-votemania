@@ -1,3 +1,8 @@
+<?php
+date_default_timezone_set("Asia/Kolkata");
+$currentpage=basename($_SERVER['PHP_SELF']);
+
+?>
 <form method="POST" action="" id="searchform" autocomplete="off">
 <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -12,7 +17,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                
+
                     <li class="nav-item notificationlink">
                         <div class="searchbox">
                             <input type="text" name="searchtxt" class="search-txt" placeholder="Search poll">
@@ -29,34 +34,44 @@
                             </script>
                         </div>
                     </li>
-                    <li class="nav-item notificationlink">
+                    <li class="nav-item notificationlink <?php if($currentpage=="home.php") echo 'active'?>">
                         <a href="home.php">
                             <span class="fas fa-home navbar-icons"></span>Home
                         </a>
                     </li>
-                    <li class="nav-item notificationlink">
+                    <li class="nav-item notificationlink <?php if($currentpage=="categories.php") echo 'active'?>">
                         <a href="categories.php">
                             <span id="categories" class="fas fa-th navbar-icons"></span>Categories
                         </a>
                     </li>
-                    <?php
-                        $query="select * from notification where uid=$uid and status=0";
-                        $res=mysqli_query($connection,$query);
-                        while($row=mysqli_fetch_assoc($res)){
-                            // print_r($row);
-                        }
-                    ?>
+                   
                     <li class="nav-item notificationlink">
-                        <span class="fas fa-bell navbar-icons "></span>Notification<span class="notificationbadge">0</span>
+                        <span class="fas fa-bell navbar-icons "></span>Notification<span class="notificationbadge noofnotification">0</span>
                         <div class="notificationdiv">
-                            <ul style="padding:5px">
-                                <li>link</li>
-                                <li>link</li>
-                                <li>link</li>
+                            <ul style="padding:5px" class="notification">
+                            <script>
+                            function notify() {
+                                    $.ajax({
+                                        url: 'notification.php',        
+                                        data: "", 
+                                        dataType: '',
+                                        success: function (data) {  
+                                            //  alert(data);
+                                            var receiveddata=data.split('|');
+                                            $(".notification").html(receiveddata[0]);//notifications
+                                            
+                                            $(".noofnotification").html(receiveddata[1]);//no of newnotifications
+                                        }
+                                    });
+                                }
+                                $(document).ready(notify); // Call on page load
+                                setInterval(notify, 5000); //run code every 5 sec
+                            </script>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item notificationlink">
+                    
+                    <li class="nav-item notificationlink <?php if($currentpage=="profile.php") echo 'active'?>">
                     <?php 
                     $qryres=mysqli_query($connection,"select username from user_details where uid=$uid");
                     $arr=mysqli_fetch_assoc($qryres);

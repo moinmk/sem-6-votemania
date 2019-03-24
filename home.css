@@ -100,6 +100,13 @@ a:visited {
     position:absolute;
 }
 
+.active{
+    color:rgb(255, 255, 255);
+    border-bottom:2px solid rgb(255, 0, 0);
+    padding-right:3px;
+    padding-left:2px;
+    /* text-decoration: underline; */
+}
 
 /* searchbar */
 .searchbox {  
@@ -152,6 +159,8 @@ a:visited {
 
 .notificationdiv{
     width:250px;
+    max-height:210px;
+    overflow:auto;
     margin-left:-5%;
     height:0px;
     background:rgba(32, 32, 32, 0.623);

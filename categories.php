@@ -44,7 +44,7 @@
                 </div>
             </a>
             <a href="searchresult.php?category=celebrities">
-                <div class="category-item" style="background-image: url('friends.jpg');">
+                <div class="category-item" style="background-image: url('images/celebrities.jpg');">
                     celebrities
                 </div>
             </a>
