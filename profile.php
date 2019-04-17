@@ -117,12 +117,6 @@ $uid=$_SESSION['id'];
                 </select><br>
                 <label>city</label><br>
                 <input type="text" name="city" value="<?php echo $row['city'];?>" required><br>
-
-                <!-- <label><a href="">change password:</a></label><br>
-                old password:<br>
-                <input type="text" name="city"><br>
-                new password:<br>
-                <input type="text" name="city"><br> -->
                 <button name="update">UPDATE</button><br>
                 <button type="button" id="cancel">CANCEL</button>
             </div>

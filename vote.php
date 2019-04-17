@@ -180,13 +180,7 @@
                 foreach($_POST['options'] as $optionid){
                     $query="update options_data set total=total+1 where oid=$optionid";
                     mysqli_query($connection,$query);
-                    // $query="select userids from options_data where oid=$option";
-                    // $res=mysqli_query($connection,$query);
-                    // $data=mysqli_fetch_assoc($res);
-                    // $ids=$data['userids'];
-                    // $idarray=explode(' ',$ids);
-                    // foreach($idarray as $id){
-                        
+                 
                     }
                     $query="update poll_details set userids=concat(userids,' $uid') where pid=$pid"; 
                     mysqli_query($connection,$query);

@@ -88,11 +88,7 @@ mysqli_query($connection,"update notification set status=1 where pid=$pid and ui
                             <?php
                             }
                             ?>
-                            // { label: "blackpanther", y: 8 },
-                            // { label: "logan", y: 9 },
-                            // { label: "mango", y: 10 },
-                            // { label: "grape", y: 2, indexLabel: "2 votes", indexLabelFontColor: "black", indexLabelFontFamily: "Quicksand" }
-                        ]
+                           ]
                     }
                 ]
             });

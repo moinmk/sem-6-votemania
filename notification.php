@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Kolkata");
 include("db_connection.php");
 $noofnewnotification=0;
 $totalrows=0;
-                        for($i=0;$i<2;$i++){//using for fetching only new notification for first time and displaying it first
+						for($i=0;$i<2;$i++){//using for fetching only new notification for first time and displaying it first
                             if($i==0){
                                 $query="select * from notification where uid=$uid and status=0 order by nid desc ";
                                 $res=mysqli_query($connection,$query);
